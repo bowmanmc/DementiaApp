@@ -7,7 +7,41 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+
+    <Grid Background="#FDF9FDFF">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Grid.Row="0" -->
+            <RowDefinition Height="*" />
+            <!-- Grid.Row="1" -->
+            <RowDefinition Height="Auto" />
+            <!-- Grid.Row="2" -->
+        </Grid.RowDefinitions>
+
+        <!-- Logo and App Title -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="12" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="Assets/aid-kit.png" MaxWidth="64" />
+            <TextBlock Text="Quiz Tracker" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="32" Padding="12,0" FontWeight="SemiLight" Foreground="#FF666666"/>
+        </StackPanel>
+
+        <!-- About Text -->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ScrollViewer>
+                <StackPanel>
+                    
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+
+        <!-- Back Button-->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom"  Height="Auto" Background="#FFCCCCCC">
+            <Button HorizontalAlignment="Center" Margin="12" BorderThickness="0" Background="#00F35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE80F;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF666666" FocusVisualPrimaryBrush="#FF666666" />
+                    <TextBlock FontFamily="Segoe UI Semilight" Text="Back" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF666666" FontSize="24" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

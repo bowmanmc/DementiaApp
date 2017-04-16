@@ -38,7 +38,7 @@
         </StackPanel>
         
         <!-- Smaller text links to setup and about pages-->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="Auto">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="Auto" Background="#FFCCCCCC">
             <Button HorizontalAlignment="Center" Margin="12" BorderThickness="0" Background="#00F35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE713;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF666666" FocusVisualPrimaryBrush="#FF666666" />
