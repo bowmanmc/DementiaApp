@@ -34,5 +34,12 @@ namespace DementiaApp
 
             Debug.WriteLine(u);
         }
+
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to the About Page
+            Frame currentFrame = Window.Current.Content as Frame;
+            currentFrame.Navigate(typeof(AboutPage));
+        }
     }
 }
