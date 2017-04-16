@@ -26,5 +26,12 @@ namespace DementiaApp
         {
             this.InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate back to MainPage
+            Frame currentFrame = Window.Current.Content as Frame;
+            currentFrame.Navigate(typeof(MainPage));
+        }
     }
 }
