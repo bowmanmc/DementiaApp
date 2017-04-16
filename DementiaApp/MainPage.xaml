@@ -7,15 +7,31 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#FDF9FDFF">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" /> <!-- Grid.Row="0" -->
+            <RowDefinition Height="*" />    <!-- Grid.Row="1" -->
+            <RowDefinition Height="Auto" /> <!-- Grid.Row="2" -->
         </Grid.RowDefinitions>
-
-        <Rectangle Grid.Row="0" Fill="Red" />
-        <Rectangle Grid.Row="1" Fill="White" />
+        
+        <!-- Logo and App Title -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="12" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="Assets/aid-kit.png" MaxWidth="64" />
+            <TextBlock Text="Quiz Tracker" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="32" Padding="12,0" FontWeight="SemiLight"/>
+        </StackPanel>
+    
+        <!-- Main Application Buttons -->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button HorizontalAlignment="Center" Margin="32" BorderThickness="0" Background="#FFF35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8">Give Quiz</Button>
+            <Button HorizontalAlignment="Center" Margin="32" BorderThickness="0" Background="#FFF35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8">View Results</Button>
+        </StackPanel>
+        
+        <!-- Smaller text links to setup and about pages-->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="Auto">
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="24,8" FontSize="24" FontFamily="Segoe UI Semilight">Setup</TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="24,8" FontSize="24" FontFamily="Segoe UI Semilight">About</TextBlock>
+        </StackPanel>
 
     </Grid>
 </Page>
