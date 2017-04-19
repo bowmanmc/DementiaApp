@@ -24,18 +24,31 @@
             <TextBlock Text="Quiz Tracker" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="32" Padding="12,0" FontWeight="SemiLight" Foreground="#FF666666"/>
         </StackPanel>
 
-        <!-- About Text -->
+        <!-- Main Application Buttons -->
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <ScrollViewer>
-                <StackPanel>
-                    
+            <Button x:Name="btnUser" HorizontalAlignment="Center" Margin="32" BorderThickness="0" Background="#FFF35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8" Click="btnUser_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE77B;" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock FontFamily="Segoe UI Semilight" Text="User Information" Margin="24,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 </StackPanel>
-            </ScrollViewer>
+            </Button>
+            <Button x:Name="btnPatient" HorizontalAlignment="Center" Margin="32" BorderThickness="0" Background="#FFF35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8" Click="btnPatient_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE779;" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock FontFamily="Segoe UI Semilight" Text="Patient Information" Margin="24,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnQuestions" HorizontalAlignment="Center" Margin="32" BorderThickness="0" Background="#FFF35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8" Click="btnQuestions_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE939;" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock FontFamily="Segoe UI Semilight" Text="Questions" Margin="24,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
         </StackPanel>
 
         <!-- Back Button-->
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom"  Height="Auto" Background="#FFCCCCCC">
-            <Button HorizontalAlignment="Center" Margin="12" BorderThickness="0" Background="#00F35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8">
+            <Button x:Name="btnHome" HorizontalAlignment="Center" Margin="12" BorderThickness="0" Background="#00F35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8" Click="btnHome_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE80F;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF666666" FocusVisualPrimaryBrush="#FF666666" />
                     <TextBlock FontFamily="Segoe UI Semilight" Text="Back" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF666666" FontSize="24" />

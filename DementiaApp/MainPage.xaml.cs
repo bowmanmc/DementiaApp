@@ -41,5 +41,26 @@ namespace DementiaApp
             Frame currentFrame = Window.Current.Content as Frame;
             currentFrame.Navigate(typeof(AboutPage));
         }
+
+        private void btnSetup_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to the About Page
+            Frame currentFrame = Window.Current.Content as Frame;
+            currentFrame.Navigate(typeof(SetupPage));
+        }
+
+        private void btnQuiz_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to the Quiz Page
+            Frame currentFrame = Window.Current.Content as Frame;
+            currentFrame.Navigate(typeof(QuizPage));
+        }
+
+        private void btnResults_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to the About Page
+            Frame currentFrame = Window.Current.Content as Frame;
+            currentFrame.Navigate(typeof(ResultsPage));
+        }
     }
 }

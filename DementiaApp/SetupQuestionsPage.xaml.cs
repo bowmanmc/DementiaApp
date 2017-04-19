@@ -26,5 +26,12 @@ namespace DementiaApp
         {
             this.InitializeComponent();
         }
+
+        private void btnSetup_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate back to SetupPage
+            Frame currentFrame = Window.Current.Content as Frame;
+            currentFrame.Navigate(typeof(SetupPage));
+        }
     }
 }

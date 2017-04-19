@@ -35,7 +35,7 @@
 
         <!-- Back Button-->
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom"  Height="Auto" Background="#FFCCCCCC">
-            <Button HorizontalAlignment="Center" Margin="12" BorderThickness="0" Background="#00F35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8">
+            <Button x:Name="btnSetup" HorizontalAlignment="Center" Margin="12" BorderThickness="0" Background="#00F35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8" Click="btnSetup_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE713;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF666666" FocusVisualPrimaryBrush="#FF666666" />
                     <TextBlock FontFamily="Segoe UI Semilight" Text="Back" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF666666" FontSize="24" />
