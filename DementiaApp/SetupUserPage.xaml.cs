@@ -24,9 +24,12 @@ namespace DementiaApp
     public sealed partial class SetupUserPage : Page
     {
 
+        private String USER_FILE = "user.txt";
+
         public SetupUserPage()
         {
             this.InitializeComponent();
+            this.loadUserFromStorage();
         }
 
         private void btnSetup_Click(object sender, RoutedEventArgs e)
@@ -36,19 +39,39 @@ namespace DementiaApp
             currentFrame.Navigate(typeof(SetupPage));
         }
 
-        private void btnSave_Click(object sender, RoutedEventArgs e)
+        private async void btnSave_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Saving user...");
             User user = new DementiaApp.User();
             user.Name = txtName.Text;
             user.Email = txtEmail.Text;
 
-            Debug.WriteLine(user.ToJson());
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile userFile = await storageFolder.CreateFileAsync(USER_FILE, Windows.Storage.CreationCollisionOption.ReplaceExisting);
 
-            String userjson = "{ \"id\":\"532c6650-ca4f-4787-a2c4-52485a43e004\",\"name\":\"Michael Bowman\",\"dateCreated\":\"4/19/2017 9:39:23 PM\",\"email\":\"Michael@foo.com\"}";
+            await Windows.Storage.FileIO.WriteTextAsync(userFile, user.ToJson());
+            Debug.WriteLine("Wrote User to file: " + user.ToJson());
 
-            User u2 = User.FromJson(userjson);
-            Debug.WriteLine("Got user: " + u2.ToString());
+            this.loadUserFromStorage();
+        }
+
+        private async void loadUserFromStorage()
+        {
+            try
+            {
+                Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                Windows.Storage.StorageFile userFile = await storageFolder.GetFileAsync(USER_FILE);
+
+                String userJson = await Windows.Storage.FileIO.ReadTextAsync(userFile);
+                User u = User.FromJson(userJson);
+                Debug.WriteLine("Read stored user: " + u.ToString());
+                txtEmail.Text = u.Email;
+                txtName.Text = u.Name;
+            }
+            catch
+            {
+                Debug.WriteLine("Exception trying to read file " + USER_FILE);
+            }
         }
     }
 }
