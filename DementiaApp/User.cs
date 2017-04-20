@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Data.Json;
+
 
 namespace DementiaApp
 {
@@ -54,6 +56,27 @@ namespace DementiaApp
         public override string ToString()
         {
             return String.Format("{0} <{1}> - {2}", this._name, this._email, this._id);
+        }
+
+        public string ToJson()
+        {
+            JsonObject result = new JsonObject();
+            result["id"] = JsonValue.CreateStringValue(this._id.ToString());
+            result["name"] = JsonValue.CreateStringValue(this._name);
+            result["dateCreated"] = JsonValue.CreateStringValue(this._dateCreated.ToString());
+            result["email"] = JsonValue.CreateStringValue(this._email);
+            return result.Stringify();
+        }
+
+        public static User FromJson(String jsonString)
+        {
+            JsonObject jsonObject = JsonObject.Parse(jsonString);
+            User result = new DementiaApp.User();
+            result._dateCreated = Convert.ToDateTime(jsonObject.GetNamedString("dateCreated"));
+            result._id = Guid.Parse(jsonObject.GetNamedString("id"));
+            result._name = jsonObject.GetNamedString("name");
+            result._email = jsonObject.GetNamedString("email");
+            return result;
         }
     }
 }
