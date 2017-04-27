@@ -5,17 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Json;
 
-
 namespace DementiaApp
 {
-    public class User
+    class Patient
     {
         private Guid _id;
         private DateTime _dateCreated;
         private String _name;
-        private String _email;
-
-        public User()
+        private int _age;
+  
+        public Patient()
         {
             _id = Guid.NewGuid();
             _dateCreated = DateTime.Now;
@@ -23,61 +22,49 @@ namespace DementiaApp
 
         public String Id
         {
-            get { return this._id.ToString(); }
+            get { return _id.ToString(); }
         }
 
         public DateTime DateCreated
         {
-            get { return this._dateCreated; }
+            get { return _dateCreated; }
         }
 
         public String Name
         {
-            get { return this._name; }
+            get { return _name; }
             set { this._name = value; }
         }
 
-        public String Email
+        public int Age
         {
-            get { return this._email; }
-            set
-            {
-                if (value.Contains("@") && value.Contains("."))
-                {
-                    this._email = value;
-                }
-                else
-                {
-                    throw new Exception("User email must contain @ and . characters...");
-                }
-            }
+            get { return _age; }
+            set { this._age = value; }
         }
 
         public override string ToString()
         {
-            return String.Format("{0} <{1}> - {2}", this._name, this._email, this._id);
+            return String.Format("{0} ({1}) - {2}", this._name, this._age, this._id.ToString());
         }
 
-        public string ToJson()
+        public String ToJson()
         {
             JsonObject result = new JsonObject();
             result["id"] = JsonValue.CreateStringValue(this._id.ToString());
-            result["name"] = JsonValue.CreateStringValue(this._name);
             result["dateCreated"] = JsonValue.CreateStringValue(this._dateCreated.ToString());
-            result["email"] = JsonValue.CreateStringValue(this._email);
-
+            result["name"] = JsonValue.CreateStringValue(this._name);
+            result["age"] = JsonValue.CreateNumberValue(this._age);
             return result.Stringify();
         }
 
-        public static User FromJson(String jsonString)
+        public static Patient FromJson(String jsonString)
         {
             JsonObject jsonObject = JsonObject.Parse(jsonString);
-            User result = new DementiaApp.User();
-            result._dateCreated = Convert.ToDateTime(jsonObject.GetNamedString("dateCreated"));
+            Patient result = new DementiaApp.Patient();
             result._id = Guid.Parse(jsonObject.GetNamedString("id"));
+            result._dateCreated = Convert.ToDateTime(jsonObject.GetNamedString("dateCreated"));
             result._name = jsonObject.GetNamedString("name");
-            result._email = jsonObject.GetNamedString("email");
-
+            result._age = (int) jsonObject.GetNamedNumber("age");
             return result;
         }
     }

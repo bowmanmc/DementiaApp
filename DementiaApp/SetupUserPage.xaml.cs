@@ -41,16 +41,16 @@ namespace DementiaApp
 
         private async void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Saving user...");
+            Debug.WriteLine("Saving2 user...");
             User user = new DementiaApp.User();
             user.Name = txtName.Text;
             user.Email = txtEmail.Text;
+            Debug.WriteLine("User: " + user.ToJson());
 
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
             Windows.Storage.StorageFile userFile = await storageFolder.CreateFileAsync(USER_FILE, Windows.Storage.CreationCollisionOption.ReplaceExisting);
 
-            await Windows.Storage.FileIO.WriteTextAsync(userFile, user.ToJson());
-            Debug.WriteLine("Wrote User to file: " + user.ToJson());
+            await Windows.Storage.FileIO.WriteTextAsync(userFile, user.ToJson());            
 
             this.loadUserFromStorage();
         }

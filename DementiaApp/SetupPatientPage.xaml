@@ -25,12 +25,18 @@
         </StackPanel>
 
         <!-- About Text -->
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <ScrollViewer>
-                <StackPanel>
+        <StackPanel Grid.Row="1" Margin="0,0,0,0" VerticalAlignment="Top">
 
+            <TextBox x:Name="txtName" Header="Name" PlaceholderText="Patient Name" HorizontalAlignment="Left" Width="256" Margin="24,12" />
+
+            <TextBox x:Name="txtAge" Header="Age" PlaceholderText="Patient Age" HorizontalAlignment="Left" Width="256" Margin="24,12"/>
+
+            <Button x:Name="btnSave" HorizontalAlignment="Left" Margin="32,32,0,32" BorderThickness="0" Background="#FFF35D66" Foreground="#FFFDF9FD" FontSize="32" BorderBrush="#FFCCCCCC" Padding="24,8" Click="btnSave_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74E;" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock FontFamily="Segoe UI Semilight" Text="Save" Margin="24,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 </StackPanel>
-            </ScrollViewer>
+            </Button>
         </StackPanel>
 
         <!-- Back Button-->
