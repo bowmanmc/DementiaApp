@@ -40,7 +40,7 @@ namespace DementiaApp
             return result.Stringify();
         }
 
-        public QuestionList FromJson(String jsonString)
+        public static QuestionList FromJson(String jsonString)
         {
             JsonObject jsonObject = JsonObject.Parse(jsonString);
             QuestionList result = new DementiaApp.QuestionList();

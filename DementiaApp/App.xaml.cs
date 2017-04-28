@@ -71,7 +71,7 @@ namespace DementiaApp
                     //rootFrame.Navigate(typeof(MainPage), e.Arguments);
                     Debug.WriteLine("TODO: Michael!!! Navigating to SetupUserPage...");
                     //rootFrame.Navigate(typeof(SetupUserPage), e.Arguments);
-                    rootFrame.Navigate(typeof(SetupUserPage));
+                    rootFrame.Navigate(typeof(SetupQuestionsPage));
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
